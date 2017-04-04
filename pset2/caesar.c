@@ -19,19 +19,14 @@ int main (int argc, string argv[]) {
     int k = atoi(argv[1]);
     int o = strlen(s);
     for (int i = 0; i < o; i++) {
-        s[i] = s[i] + k % 26;
-        if (s[i] > 122) { 
-            s[i] = s[i] - 26;
-        }
-        else if (s[i] > 90 && s[i] < 97) {
-            s[i] = s[i] - 26;
-        }
-        else if (s[i] < 0) {
-            s[i] = s[i] - 26;
-        }
-        else if (isalpha(s[i]) == 0) {
-            s[i] = s[i] - k;
-        }
+         if (isalpha(s[i]) != 0) {
+            s[i] = s[i] + k % 26;
+            if (isalpha(s[i]) == 0) { 
+                s[i] = s[i] - 26;
+            }
+         }
+            
+            
     }
     printf("%s\n", s);
     return 0;
